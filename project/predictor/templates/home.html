@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction</title>
+</head>
+
+<body>
+
+    <h2>Diabetes Prediction System</h2>
+
+    
+    <h3>Input Guidelines</h3>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Feature</th>
+            <th>Normal Range</th>
+        </tr>
+        <tr>
+            <td>Glucose</td>
+            <td>70 – 200</td>
+        </tr>
+        <tr>
+            <td>BloodPressure</td>
+            <td>60 – 120</td>
+        </tr>
+        <tr>
+            <td>SkinThickness</td>
+            <td>10 – 50</td>
+        </tr>
+        <tr>
+            <td>Insulin</td>
+            <td>15 – 276</td>
+        </tr>
+        <tr>
+            <td>BMI</td>
+            <td>18 – 40</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>18 – 100</td>
+        </tr>
+    </table>
+
+    <br>
+
+    
+    <form method="post">
+        {% csrf_token %}
+
+        Glucose: <input type="number" step="any" name="Glucose" required><br><br>
+        BloodPressure: <input type="number" step="any" name="BloodPressure" required><br><br>
+        SkinThickness: <input type="number" step="any" name="SkinThickness" required><br><br>
+        Insulin: <input type="number" step="any" name="Insulin" required><br><br>
+        BMI: <input type="number" step="any" name="BMI" required><br><br>
+        Age: <input type="number" step="any" name="Age" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <br>
+
+    
+    {% if result %}
+        <h3>Result: {{ result }}</h3>
+    {% endif %}
+
+</body>
+</html>
